@@ -1,21 +1,26 @@
-import { app, h } from '../../dist/tinyact-esm.js';
+import { app, h, span, h1, strong } from '../../dist/tinyact-esm.js';
 
 app({
   node: '#app',
   state: {
-    todos: []
+    todos: [],
+    value: '',
   },
   onInput(e) {
     const { value } = e.target;
     console.log('input', value);
     this.setState({ value });
   },
+  handleKeydown(e) {
+    if (e.keyCode === 13)
+      this.addTodo();
+  },
   addTodo() {
     const { todos, value } = this.state;
     console.log('click', value);
     const todo = { title: value, done: false };
     todos.push(todo);
-    this.setState({ todos });
+    this.setState({ todos, value: '' });
   },
   setStatus(todo) {
     todo.done = !todo.done;
@@ -28,19 +33,24 @@ app({
     this.setState({ todos: x });
   },
   render() {
-    const { todos } = this.state;
+    const { todos, value } = this.state;
+    const left = todos.filter(x => !x.done)
     return h('div', {},
-      h('h1', { textContent: 'todo app' }),
-      h('input', { oninput: this.onInput.bind(this) }),
-      h('button', { textContent: 'add todo', onclick: this.addTodo.bind(this) }),
-      h('ul', {},
+      h1({ textContent: 'todos' }),
+      h('input', { className: 'new-todo', placeholder: 'What needs to be done?', value, oninput: this.onInput.bind(this), onkeydown: this.handleKeydown.bind(this) }),
+      h('ul', { className: "todo-list" },
         todos.map(todo =>
-          h('li', {}, [
-            h('input', { type: 'checkbox', onchange: this.setStatus.bind(this, todo) }),
-            h('span', { className: todo.done ? 'todo-done' : '', textContent: todo.title }),
-            h('a', { className: 'todo-remove', onclick: this.removeTodo.bind(this, todo), textContent: 'remove' })
+          h('li', { className: `todo ${todo.done ? 'todo-done' : ''}` }, [
+            h('input', { className: 'todo-toggle', type: 'checkbox', onchange: this.setStatus.bind(this, todo) }),
+            h('label', { className: todo.done ? 'todo-done' : '', textContent: todo.title }),
+            h('button', { className: 'todo-destroy', onclick: this.removeTodo.bind(this, todo) })
           ]))
-      )
+      ),
+      h('footer', { className: "footer" }, [
+        span({ className: "todo-count" }, [
+          strong({ textContent: `${left.length} items left` })
+        ])
+      ])
     );
   }
 });

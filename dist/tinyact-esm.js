@@ -9,13 +9,30 @@ const createElement = (tagName, props, children) => {
 };
 
 const flattern = arr => [].concat.apply([], arr);
-var h = (tagName, props = {}, ...c) => {
+
+const h = (tagName, props = {}, ...c) => {
   const children = flattern(c).filter(Boolean);
   const render = ((element) => () => {
     if (element) return element;
     return (element = createElement(tagName, props, children))
   })();
   return Object.assign(render, { tagName, props, children })
+};
+
+const div = (props, children) => {
+  return h('div', props, children);
+};
+
+const h1 = (props, children) => {
+  return h('h1', props, children);
+};
+
+const span = (props, children) => {
+  return h('span', props, children);
+};
+
+const strong = (props, children) => {
+  return h('strong', props, children);
 };
 
 const longZip = (a1, a2) => {
@@ -69,8 +86,9 @@ const app = ctx => {
       return update();
     }
   });
+  ctx.onLoad && ctx.onLoad();
   return update();
 };
 
-export { app, createMountPoint, h };
+export { app, createElement, createMountPoint, div, h, h1, span, strong };
 //# sourceMappingURL=tinyact-esm.js.map

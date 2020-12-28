@@ -10,5 +10,6 @@ export const app = ctx => {
       return update();
     }
   });
+  ctx.onLoad && ctx.onLoad();
   return update();
 };

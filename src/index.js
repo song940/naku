@@ -1,5 +1,4 @@
-import h from './h';
-import { createMountPoint } from './render';
-
+export * from './h';
+export * from './dom';
 export * from './app';
-export { h, createMountPoint };
+export * from './render';
