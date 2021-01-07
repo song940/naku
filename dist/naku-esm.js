@@ -91,4 +91,4 @@ const app = ctx => {
 };
 
 export { app, createElement, createMountPoint, div, h, h1, span, strong };
-//# sourceMappingURL=tinyact-esm.js.map
+//# sourceMappingURL=naku-esm.js.map

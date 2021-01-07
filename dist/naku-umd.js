@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = global || self, factory(global.tinyact = {}));
+  (global = global || self, factory(global.naku = {}));
 }(this, (function (exports) { 'use strict';
 
   const createElement = (tagName, props, children) => {
@@ -106,4 +106,4 @@
   exports.strong = strong;
 
 })));
-//# sourceMappingURL=tinyact-umd.js.map
+//# sourceMappingURL=naku-umd.js.map

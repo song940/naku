@@ -1,11 +1,11 @@
 {
-  "name": "tinyact",
+  "name": "naku",
   "version": "0.0.2",
   "description": "Super Tiny React Alternative",
-  "main": "dist/tinyact.js",
+  "main": "dist/naku.js",
   "module": "dist/tniyact.esm.js",
   "umd:main": "dist/tiniyact.umd.js",
-  "umd:name": "tinyact",
+  "umd:name": "naku",
   "scripts": {
     "build": "rollup -c",
     "test": "node test"
@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/song940/tinyact.git"
+    "url": "git+https://github.com/song940/naku.git"
   },
   "bugs": {
-    "url": "https://github.com/song940/tinyact/issues"
+    "url": "https://github.com/song940/naku/issues"
   },
-  "homepage": "https://github.com/song940/tinyact#readme",
+  "homepage": "https://github.com/song940/naku#readme",
   "keywords": [
     "react"
   ]

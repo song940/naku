@@ -100,4 +100,4 @@ exports.h = h;
 exports.h1 = h1;
 exports.span = span;
 exports.strong = strong;
-//# sourceMappingURL=tinyact.js.map
+//# sourceMappingURL=naku.js.map

@@ -1,19 +1,19 @@
-## tinyact
+## naku
 
 > Super Tiny React Alternative
 
 ### Installation
 
 ```bash
-$ npm install tinyact
+$ npm install naku
 ```
 
 ### Example
 
-Live Demo: https://lsong.org/tinyact/examples/todos
+Live Demo: https://lsong.org/naku/examples/todos
 
 ```js
-import { h, app } from 'tinyact';
+import { h, app } from 'naku';
 
 app({
   node: '#app',

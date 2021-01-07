@@ -1,4 +1,4 @@
-import { app, h, span, h1, strong } from '../../dist/tinyact-esm.js';
+import { app, h, span, h1, strong } from '../../dist/naku-esm.js';
 
 app({
   node: '#app',
